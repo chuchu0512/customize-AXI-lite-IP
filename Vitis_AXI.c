@@ -31,17 +31,17 @@ int main()
 	Xil_Out8(data+5, 255) ; // blue = 255
 
 	//write data into AXI-Lite IP
-	GRAY_AXI_mWriteReg(XPAR_GRAY_AXI_0_S00_AXI_BASEADDR, GRAY_AXI_S00_AXI_SLV_REG0_OFFSET, data+0) ; // reg0 is red (in vivado)
-	GRAY_AXI_mWriteReg(XPAR_GRAY_AXI_0_S00_AXI_BASEADDR, GRAY_AXI_S00_AXI_SLV_REG1_OFFSET, data+1) ; // reg1 is green
-	GRAY_AXI_mWriteReg(XPAR_GRAY_AXI_0_S00_AXI_BASEADDR, GRAY_AXI_S00_AXI_SLV_REG2_OFFSET, data+2) ; // reg2 is blue
+	GRAY_AXI_mWriteReg(XPAR_GRAY_AXI_0_S00_AXI_BASEADDR, GRAY_AXI_S00_AXI_SLV_REG0_OFFSET, Xil_In8(data+0)) ; // reg0 is red (in vivado)
+	GRAY_AXI_mWriteReg(XPAR_GRAY_AXI_0_S00_AXI_BASEADDR, GRAY_AXI_S00_AXI_SLV_REG1_OFFSET, Xil_In8(data+1)) ; // reg1 is green
+	GRAY_AXI_mWriteReg(XPAR_GRAY_AXI_0_S00_AXI_BASEADDR, GRAY_AXI_S00_AXI_SLV_REG2_OFFSET, Xil_In8(data+2)) ; // reg2 is blue
 
 	//read data from AXI-Lite IP
 	Xil_Out8(result+0, GRAY_AXI_mReadReg(XPAR_GRAY_AXI_0_S00_AXI_BASEADDR, GRAY_AXI_S00_AXI_SLV_REG3_OFFSET)) ; // reg3 is gray
 
 	//write data into AXI-Lite IP
-	GRAY_AXI_mWriteReg(XPAR_GRAY_AXI_0_S00_AXI_BASEADDR, GRAY_AXI_S00_AXI_SLV_REG0_OFFSET, data+3) ; // reg0 is red (in vivado)
-	GRAY_AXI_mWriteReg(XPAR_GRAY_AXI_0_S00_AXI_BASEADDR, GRAY_AXI_S00_AXI_SLV_REG1_OFFSET, data+4) ; // reg1 is green
-	GRAY_AXI_mWriteReg(XPAR_GRAY_AXI_0_S00_AXI_BASEADDR, GRAY_AXI_S00_AXI_SLV_REG2_OFFSET, data+5) ; // reg2 is blue
+	GRAY_AXI_mWriteReg(XPAR_GRAY_AXI_0_S00_AXI_BASEADDR, GRAY_AXI_S00_AXI_SLV_REG0_OFFSET, Xil_In8(data+3)) ; // reg0 is red (in vivado)
+	GRAY_AXI_mWriteReg(XPAR_GRAY_AXI_0_S00_AXI_BASEADDR, GRAY_AXI_S00_AXI_SLV_REG1_OFFSET, Xil_In8(data+4)) ; // reg1 is green
+	GRAY_AXI_mWriteReg(XPAR_GRAY_AXI_0_S00_AXI_BASEADDR, GRAY_AXI_S00_AXI_SLV_REG2_OFFSET, Xil_In8(data+5)) ; // reg2 is blue
 
 	//read data from AXI-Lite IP
 	Xil_Out8(result+1, GRAY_AXI_mReadReg(XPAR_GRAY_AXI_0_S00_AXI_BASEADDR, GRAY_AXI_S00_AXI_SLV_REG3_OFFSET)) ; // reg3 is gray
